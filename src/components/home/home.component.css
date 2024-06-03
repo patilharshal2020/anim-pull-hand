@@ -1,3 +1,14 @@
+
+@keyframes runAnimation {
+  0% { background-image: url('../../assets/Run1.png'); }
+  14.3% { background-image: url('../../assets/Run2.png'); }
+  28.6% { background-image: url('../../assets/Run3.png'); }
+  42.9% { background-image: url('../../assets/Run4.png'); }
+  57.2% { background-image: url('../../assets/Run5.png'); }
+  71.5% { background-image: url('../../assets/Run6.png'); }
+  85.8% { background-image: url('../../assets/Run7.png'); }
+  100% { background-image: url('../../assets/Run1.png'); }
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -8,18 +19,19 @@
   overflow: hidden;
 }
 
-.panda {
-  width: 30px; /* Adjust size as needed */
-  height: 30px; /* Adjust size as needed */
-  background: url('../../assets/panda-svgrepo-com.svg') no-repeat center center;
+.charector {
+  width: 50px;
+  height: 50px;
+  background: url('../../assets/Run1.png') no-repeat center center;
   background-size: contain;
   position: absolute;
-  top: calc(50% - 50px); /* Initially center the panda */
-  transition: top 2s ease-out;
+  top: calc(50% - 80px);
+  animation: runAnimation 1s steps(7) infinite;
 }
 
+
 .dropdown {
-  margin-top: 20px; /* Adjust as needed */
+  margin-top: 20px;
 }
 
 .list-container {
@@ -27,7 +39,7 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  background: white; /* Adjust as needed */
+  background: white;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  top: -100%; /* Start hidden */
+  right: -100%;
 }

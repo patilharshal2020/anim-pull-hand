@@ -15,22 +15,22 @@ import { CategoriesListComponent } from '../categories-list/categories-list.comp
   animations: [
     trigger('slideIn', [
       state('hidden', style({
-        top: '-100%'
+        right: '-100%'
       })),
       state('visible', style({
-        top: '0'
+        right: '0'
       })),
       transition('hidden => visible', animate('4s ease-out'))
     ]),
-    trigger('pandaAnimation', [
+    trigger('charectorAnimation', [
       state('waiting', style({
-        top: 'calc(50% - 50px)'
+        right: 'calc(50%)'
       })),
       state('walking', style({
-        top: '0'
+        right: '0'
       })),
       state('dragCategory', style({
-        top: 'calc(100%)'
+        right: 'calc(100%)'
       })),
       transition('waiting => walking', animate('2s ease-out')),
       transition('walking => waiting', animate('2s ease-out')),
@@ -41,14 +41,14 @@ import { CategoriesListComponent } from '../categories-list/categories-list.comp
 export class HomeComponent {
   categories: string[] = ['Category 1', 'Category 2', 'Category 3'];
   selectedCategory: string;
-  pandaState: string = 'waiting';
+  charectorState: string = 'waiting';
   slideState: string = 'hidden';
 
   onCategorySelected() {
-    this.pandaState = 'walking';
+    this.charectorState = 'walking';
     setTimeout(() => {
       this.slideState = 'visible';
-      this.pandaState = 'dragCategory';
+      this.charectorState = 'dragCategory';
     }, 2000); // This should match the duration of the 'walking' animation
   }
 }
