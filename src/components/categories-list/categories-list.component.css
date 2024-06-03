@@ -1,0 +1,9 @@
+.details-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white; /* Adjust as needed */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    top: -100%; /* Start hidden */
+  }
+  

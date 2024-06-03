@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.panda {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+  background: url('../../assets/panda-svgrepo-com.svg') no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  top: calc(50% - 50px); /* Initially center the panda */
+  transition: top 2s ease-out;
+}
+
+.dropdown {
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.list-container {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: white; /* Adjust as needed */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  top: -100%; /* Start hidden */
+}

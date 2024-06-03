@@ -1,0 +1,16 @@
+
+<div class="container">
+    <app-categories-list class="list-container" [@slideIn]="slideState"></app-categories-list>
+    <div class="panda" [@pandaAnimation]="pandaState"></div>
+    <div class="dropdown">
+      <mat-form-field>
+        <mat-label>Product Category</mat-label>
+        <mat-select [(value)]="selectedCategory" (selectionChange)="onCategorySelected()">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+</div>
+  
