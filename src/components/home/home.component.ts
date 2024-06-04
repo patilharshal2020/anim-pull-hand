@@ -20,7 +20,7 @@ import { CategoriesListComponent } from '../categories-list/categories-list.comp
       state('visible', style({
         right: '0'
       })),
-      transition('hidden => visible', animate('4s ease-out'))
+      transition('hidden => visible', animate('4s ease-out')) // Adjust the duration as needed
     ]),
     trigger('charectorAnimation', [
       state('waiting', style({
@@ -32,9 +32,9 @@ import { CategoriesListComponent } from '../categories-list/categories-list.comp
       state('dragCategory', style({
         right: 'calc(100%)'
       })),
-      transition('waiting => walking', animate('2s ease-out')),
-      transition('walking => waiting', animate('2s ease-out')),
-      transition('walking => dragCategory', animate('4s ease-out')),
+      transition('waiting => walking', animate('2s ease-out')), // Adjust the duration as needed
+      transition('walking => waiting', animate('2s ease-out')), // Adjust the duration as needed
+      transition('walking => dragCategory', animate('4s ease-out')) // Adjust the duration as needed
     ])
   ]
 })

@@ -1,14 +1,24 @@
-
 @keyframes runAnimation {
-  0% { background-image: url('../../assets/Run1.png'); }
-  14.3% { background-image: url('../../assets/Run2.png'); }
-  28.6% { background-image: url('../../assets/Run3.png'); }
-  42.9% { background-image: url('../../assets/Run4.png'); }
-  57.2% { background-image: url('../../assets/Run5.png'); }
-  71.5% { background-image: url('../../assets/Run6.png'); }
-  85.8% { background-image: url('../../assets/Run7.png'); }
-  100% { background-image: url('../../assets/Run1.png'); }
+  0% { background-position: 0 0; }
+  14.3% { background-position: -96px 0; }
+  28.6% { background-position: -192px 0; }
+  42.9% { background-position: -288px 0; }
+  57.2% { background-position: -384px 0; }
+  71.5% { background-position: -480px 0; }
+  85.8% { background-position: -576px 0; }
+  100% { background-position: 0 0; }
 }
+
+.character {
+  width: 96px;
+  height: 100px;
+  background-image: url('../../assets/Run.png'); /* Ensure the path is correct */
+  background-size: 672px 100px; /* Total width of the sprite sheet */
+  position: absolute;
+  top: calc(50% - 130px);
+  animation: runAnimation 1s steps(7) infinite;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -18,17 +28,6 @@
   position: relative;
   overflow: hidden;
 }
-
-.charector {
-  width: 50px;
-  height: 50px;
-  background: url('../../assets/Run1.png') no-repeat center center;
-  background-size: contain;
-  position: absolute;
-  top: calc(50% - 80px);
-  animation: runAnimation 1s steps(7) infinite;
-}
-
 
 .dropdown {
   margin-top: 20px;
