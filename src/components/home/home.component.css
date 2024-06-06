@@ -9,6 +9,17 @@
   100% { background-position: 0 0; }
 }
 
+@keyframes runRevAnimation {
+  0% { background-position: 0 0; }
+  14.3% { background-position: 96px 0; }
+  28.6% { background-position: 192px 0; }
+  42.9% { background-position: 288px 0; }
+  57.2% { background-position: 384px 0; }
+  71.5% { background-position: 480px 0; }
+  85.8% { background-position: 576px 0; }
+  100% { background-position: 0 0; }
+}
+
 .character {
   width: 96px;
   height: 100px;
@@ -16,7 +27,17 @@
   background-size: 672px 100px;
   position: absolute;
   top: calc(50% - 130px);
-  animation: runAnimation 2s steps(7) infinite;
+  animation: runAnimation 1s steps(1) infinite;
+}
+
+.character-rev {
+  width: 96px;
+  height: 100px;
+  background-image: url('../../assets/Run-rev.png');
+  background-size: 672px 100px;
+  position: absolute;
+  top: calc(50% - 130px);
+  animation: runRevAnimation 1s steps(1) infinite;
 }
 
 .container {
