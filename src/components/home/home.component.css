@@ -12,11 +12,11 @@
 .character {
   width: 96px;
   height: 100px;
-  background-image: url('../../assets/Run.png'); /* Ensure the path is correct */
-  background-size: 672px 100px; /* Total width of the sprite sheet */
+  background-image: url('../../assets/Run.png');
+  background-size: 672px 100px;
   position: absolute;
   top: calc(50% - 130px);
-  animation: runAnimation 1s steps(7) infinite;
+  animation: runAnimation 2s steps(7) infinite;
 }
 
 .container {
