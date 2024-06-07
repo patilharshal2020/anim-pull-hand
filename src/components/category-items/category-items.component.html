@@ -1,1 +1,4 @@
-<p>category-items works!</p>
+<div *ngIf="products$ | async as productItems">
+    <p *ngFor="let product of productItems?.products">{{product.title}}</p>
+</div>
+  

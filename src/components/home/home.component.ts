@@ -5,11 +5,13 @@ import { MatLabel, MatOption, MatSelect } from '@angular/material/select';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { CategoriesListComponent } from '../categories-list/categories-list.component';
+import { SharedService } from '../../services/shared.service';
+import { CategoryItemsComponent } from '../category-items/category-items.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TopBarComponent, MatSelect, MatOption, MatLabel, MatFormFieldModule, CommonModule, CategoriesListComponent],
+  imports: [TopBarComponent, MatSelect, MatOption, MatLabel, MatFormFieldModule, CommonModule, CategoriesListComponent, CategoryItemsComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   animations: [
@@ -20,7 +22,7 @@ import { CategoriesListComponent } from '../categories-list/categories-list.comp
       state('visible', style({
         right: '0'
       })),
-      transition('hidden => visible', animate('8s ease-out'))
+      transition('hidden => visible', animate('6s ease-out'))
     ]),
     trigger('charectorAnimation', [
       state('waiting', style({
@@ -32,25 +34,36 @@ import { CategoriesListComponent } from '../categories-list/categories-list.comp
       state('dragCategory', style({
         right: 'calc(100%)'
       })),
-      transition('waiting => walking', animate('4s ease-out')),
-      transition('walking => waiting', animate('4s ease-out')),
-      transition('walking => dragCategory', animate('8s ease-out'))
+      transition('waiting => walking', animate('3s ease-out')),
+      transition('walking => waiting', animate('3s ease-out')),
+      transition('walking => dragCategory', animate('6s ease-out'))
     ])
   ]
 })
 export class HomeComponent {
   @ViewChild('charactor') charactor!: ElementRef;
-  categories: string[] = ['Category 1', 'Category 2', 'Category 3'];
+  categories: any;
   selectedCategory: string;
   charectorState: string = 'waiting';
   slideState: string = 'hidden';
 
+  constructor(private sharedService: SharedService){};
+
+  ngOnInit(){
+    this.sharedService.getCategoriesList().subscribe(data => {
+      this.categories = data;
+    })
+  }
   onCategorySelected() {
+    this.sharedService.setSelectedCategory(this.selectedCategory);
     this.charectorState = 'walking';
     setTimeout(() => {
       this.slideState = 'visible';
       this.charectorState = 'dragCategory';
       this.charactor.nativeElement.classList.add('character-rev');
-    }, 4000); // This should match the duration of the 'walking' animation
+    }, 3000);
+    setTimeout(()=>{
+      this.charactor.nativeElement.classList.add('jump-character');
+    },1000)
   }
 }

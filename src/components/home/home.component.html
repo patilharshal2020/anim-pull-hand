@@ -1,6 +1,7 @@
 
 <div class="container">
-    <app-categories-list class="list-container" [@slideIn]="slideState"></app-categories-list>
+    <!-- <app-categories-list class="list-container" [@slideIn]="slideState"></app-categories-list> -->
+    <app-category-items class="list-container" [@slideIn]="slideState"></app-category-items>
     <div class="character" [@charectorAnimation]="charectorState" #charactor></div>
     <div class="dropdown">
       <mat-form-field>
